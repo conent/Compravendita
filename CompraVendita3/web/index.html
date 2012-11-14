@@ -1,0 +1,59 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<HTML>
+    <HEAD>
+        <TITLE>Getting Parameter Example</TITLE>
+        <script type="text/javascript">
+
+            function checkform()
+            { 
+                if (document.login.userName.value =='') {
+                    // something is wrong
+                    alert('Please Enter Your Name');
+                    document.login.userName.focus();
+                    return false;
+                }
+                else if (document.login.userPassWord.value =='')
+                {
+                    // something else is wrong
+                    alert('Please Enter Pasword');
+                    document.login.userPassWord.focus();
+                    return false;
+                }
+                else if (document.login.userRePassWord.value ==' ' || document.login.userRePassWord.value != 
+                    document.login.userPassWord.value)
+                {
+                    // something else is wrong
+                    alert('Your Password Matching not found');
+                    document.login.userRePassWord.focus();
+                    return false;
+                } 
+
+                return true;
+            }
+        </script> 
+
+    </HEAD>
+    <BODY bgcolor=lightblue>
+        <form name=login method="get" 
+              action="http://localhost:8080/LoginServlet" 
+              onSubmit="return checkform(this)" >
+            <center>
+                <h1>Enter your Name and Pasword </h1><br>
+                <table border=1>
+                    <tr><td>Enter Your Name :</td>
+                        <td><input type="text" name="userName" value=""></td>
+                    </tr>
+                    <tr><td>Enter Your PassWord :</td>
+                        <td><input type="password" name="userPassWord" value=""></td>
+                    </tr>
+                    <tr><td align=center><input type="submit" name="Submit" value="Submit" ></td>
+                        <td align=center><input type="reset" name="reset" value="Refresh"></td>
+                    </table>
+                        </center>
+                        </form>
+                        </BODY>
+                        </HTML>
